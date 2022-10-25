@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+
+{% block content %}
+
+<div class="flex flex-col space-x-5 lg:flex-row">
+    <div class="bg-gray-100 rounded-lg overflow-x-hidden max-w-7xl">
+        <img src="{{ listing.image.url }}" alt=""/>
+        <div class="p-5">
+            <h3 class="text-3xl text-gray-900 font-bold">{{ listing.title }}</h3>
+                <div class="flex flex-row space-x-4 items-center">
+                    <p class="text-gray-600 text-sm">{{ listing.num_bedrooms }} chambres</p>
+                    <p class="text-gray-600 text-sm">{{ listing.num_bathrooms }} pièces</p>
+                    <span>•</span>
+                    <p class="text-gray-600 text-sm">{{ listing.square_footage }} m2</p>
+                </div>
+            <p class="text-gray-600 text-sm mb-5">{{ listing.address }}</p>
+            <h3 class="text-3xl text-gray-900">{{ listing.price }} €</h3>
+            <div class="flex flex-row space-x-5 mt-5 py-5 border-t border-gray-200 lg:hidden">
+                <a href="/listings/{{ listing.id }}/edit" class="text-blue-500">Edit</a>
+                <a href="/listings/{{ listing.id }}/delete" class="text-blue-500">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray-100 flex-1 h-fit rounded-lg overflow-x-hidden hidden sticky top-2 lg:block">
+        <div class="flex flex-col justify-start space-y-3 p-5">
+            <h2 class="text-lg font-bold mb-2">Actions</h2>
+            <a href="/listings/{{ listing.id }}/edit" class="text-blue-500">Edit</a>
+            <a href="/listings/{{ listing.id }}/delete" class="text-blue-500">Delete</a>
+            <a href="/" class="text-blue-500">Retour</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
